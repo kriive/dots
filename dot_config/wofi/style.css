@@ -1,0 +1,60 @@
+@import "/home/kriive/.config/wofi/base16-waybar/colors/base16-default-dark.css";
+
+*{
+font-family: "JetBrainsMono Nerd Font";
+border-radius: 0;
+min-height: 0;
+padding: 0;
+margin: 0;
+border: 0px;
+outline: none;
+transition: none;
+box-shadow: none;
+text-shadow: none;
+}
+
+#input .left {
+color: rgba(0,100,0,0);
+margin-right: -10px; 
+}
+
+window {
+margin: 5px;
+background-color: @base00;
+outline: none;
+}
+
+#input {
+font-size: 50px;
+margin: 5px;
+border: none;
+background-color: transparent;
+outline: none;
+color: @base03;
+}
+
+#inner-box {
+margin: 5px;
+border: none;
+}
+
+#outer-box {
+margin: 5px;
+border: none;
+}
+
+#scroll {
+margin: 5px;
+border: none;
+}
+
+#text {
+margin: 5px;
+border: none;
+color: @base06;
+} 
+
+#entry:selected {
+background-color: @base02;
+outline: none;
+}

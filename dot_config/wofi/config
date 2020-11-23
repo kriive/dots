@@ -1,0 +1,12 @@
+width=400
+mode=drun
+# colors=colors
+insensitive=true
+columns=1
+prompt=search
+#allow_images=true
+filter_rate=100
+hide_scroll=true
+parse_search=true
+no_actions=true
+line_wrap=word
