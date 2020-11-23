@@ -1,0 +1,76 @@
+# .bash_profile
+
+# Get the aliases and functions
+if [ -f ~/.bashrc ]; then
+	. ~/.bashrc
+fi
+
+# Export GTK theme
+# export GTK_THEME=Arc-Dark
+
+# User specific environment and startup programs
+export PATH="$HOME/.cargo/bin:$PATH:/usr/local/bin"
+export GOPATH=$HOME/go
+
+# Enable VAAPI in Firefox 75
+export MOZ_WAYLAND_USE_VAAPI=1
+
+# Enable Wayland
+export MOZ_ENABLE_WAYLAND=1
+
+export XDG_SESSION_TYPE=wayland
+export _JAVA_AWT_WM_NONREPARENTING=1
+
+# Enable Wayland in Qt
+export QT_QPA_PLATFORM=wayland-egl
+
+# Disable Qt client decorations
+export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
+
+# Force physical DPI
+#export QT_WAYLAND_FORCE_DPI=physical
+
+# Use Firefox in mixed envronments
+export MOZ_DBUS_REMOTE=1
+
+# SDL and Wayland
+export SDL_VIDEODRIVER=wayland
+
+# Theming
+export QT_QPA_PLATFORMTHEME="qt5ct"
+
+# Screencast
+export XDG_CURRENT_DESKTOP=sway
+
+# GDK
+# Beware, breaks Electron apps
+# export GDK_BACKEND=wayland
+
+# Clutter
+export CLUTTER_BACKEND=wayland
+
+# ESP8266 SDK
+#export IDF_PATH=~/esp/ESP8266_RTOS_SDK
+
+# Use nvim when needed
+export VISUAL=nvim
+export EDITOR="$VISUAL"
+
+# Customize PATH here
+export PATH=$GOPATH/bin:$PATH
+
+if [ -z "$SSH_AUTH_SOCK" ]; then
+   # Check for a currently running instance of the agent
+   RUNNING_AGENT="`ps -ax | grep 'ssh-agent -s' | grep -v grep | wc -l | tr -d '[:space:]'`"
+   if [ "$RUNNING_AGENT" = "0" ]; then
+        # Launch a new instance of the agent
+        ssh-agent -s &> .ssh/ssh-agent
+   fi
+   eval `cat .ssh/ssh-agent`
+fi
+
+# If running from tty1 start way
+if [ "$(tty)" = "/dev/tty1" ]; then
+	exec sway
+fi
+
